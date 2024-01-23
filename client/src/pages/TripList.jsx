@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setTripList } from "../redux/state";
 import ListingCard from "../components/ListingCard";
 import Footer from "../components/Footer";
+import { apiURL } from "../components/helper";
 
 const TripList = () => {
 	const [loading, setLoading] = useState(true);
@@ -16,12 +17,9 @@ const TripList = () => {
 
 	const getTripList = async () => {
 		try {
-			const response = await fetch(
-				`http://localhost:3001/users/${userId}/trips`,
-				{
-					method: "GET",
-				}
-			);
+			const response = await fetch(`${apiURL}/users/${userId}/trips`, {
+				method: "GET",
+			});
 
 			const data = await response.json();
 			dispatch(setTripList(data));
