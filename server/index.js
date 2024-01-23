@@ -9,19 +9,22 @@ const listingRoutes = require("./routes/listing.js");
 const bookingRoutes = require("./routes/booking.js");
 const userRoutes = require("./routes/user.js");
 
-app.use(cors());
+const corsOptions = {
+	origin: "http://localhost:3000",
+};
+
+app.use(cors(corsOptions));
 app.use(express.json());
 app.use(express.static("public"));
 
 /* ROUTES */
 app.get("/", (req, res) => {
-   res.send("Server is running")
+	res.send("Server is running");
 });
 app.use("/auth", authRoutes);
 app.use("/properties", listingRoutes);
 app.use("/bookings", bookingRoutes);
 app.use("/users", userRoutes);
-
 
 /* MONGOOSE SETUP */
 const PORT = 3001;
