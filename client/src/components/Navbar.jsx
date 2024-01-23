@@ -35,9 +35,9 @@ const Navbar = () => {
 				<IconButton disabled={search === ""}>
 					<Search
 						sx={{ color: variables.pinkred }}
-						// onClick={() => {
-						// 	navigate(`/properties/search/${search}`);
-						// }}
+						onClick={() => {
+							navigate(`/properties/search/${search}`);
+						}}
 					/>
 				</IconButton>
 			</div>
