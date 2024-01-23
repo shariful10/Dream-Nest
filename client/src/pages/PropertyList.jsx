@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { setPropertyList } from "../redux/state";
 import Loader from "../components/Loader";
 import Footer from "../components/Footer";
+import { apiURL } from "../components/helper";
 
 const PropertyList = () => {
 	const [loading, setLoading] = useState(true);
@@ -17,7 +18,7 @@ const PropertyList = () => {
 	const getPropertyList = async () => {
 		try {
 			const response = await fetch(
-				`http://localhost:3001/users/${user._id}/properties`,
+				`${apiURL}/users/${user._id}/properties`,
 				{
 					method: "GET",
 				}
