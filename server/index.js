@@ -10,7 +10,9 @@ const bookingRoutes = require("./routes/booking.js");
 const userRoutes = require("./routes/user.js");
 
 const corsOptions = {
-	origin: "http://localhost:3000",
+	origin: "*",
+	credentials: true,
+	optionSuccessStatus: 200,
 };
 
 app.use(cors(corsOptions));
